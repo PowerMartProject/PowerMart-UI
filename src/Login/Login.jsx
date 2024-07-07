@@ -1,22 +1,52 @@
-import React,{Component} from 'react';
+import React,{Component,useState} from 'react';
+import axios from 'axios'
 import './Login.css'
 
 
 
 function Login()
 {
+	const[email,setEmail]=useState('')
+	const[password,setPassword]=useState('')
+	const handleSubmit=(e)=>{
+		e.preventDefault()
+		const data={
+			'Email':email,
+			'Password':password
+		}
+		console.log(data)
+		const url='http://localhost:8000/auth/Login'
+		const config={
+			headers:{
+			'Content-Type':'application/json',
+			'Authorization':'Bearer'+localStorage.getItem('bearerToken')
+
+		}};
+		axios.post(url,data,config).then(response=>{
+			console.log('response',response.data)
+		})
+		.catch(error=>{
+			console.log('ERROR',error)
+
+		})
+
+	}
     return(
         <div class="container">
 	<div class="screen">
 		<div class="screen__content">
-			<form class="login">
+			<form class="login" onClick={handleSubmit}>
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="User name / Email"/>
+					<input type="text" class="login__input" placeholder="User name / Email" value={email} onChange={(e)=>{
+						setEmail(e.target.value)
+					}}/>
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Password"/>
+					<input type="password" class="login__input" placeholder="Password" value={password} onChange={(e)=>{
+						setPassword(e.target.value)
+					}}/>
 				</div>
 				<button class="button login__submit">
 					<span class="button__text">Log In Now</span>
