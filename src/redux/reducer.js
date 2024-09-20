@@ -1,5 +1,5 @@
-import {ADD,SUB} from '../actionType'
-export const reducer=(state,{type,payload})=>{
+import {ADD,SUB} from '../actionType.js'
+export const reducer=(state,{type})=>{
     switch(type){
         case ADD:
             return {...state,counter:state.counter+1}

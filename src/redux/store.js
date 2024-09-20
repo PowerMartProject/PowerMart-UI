@@ -1,5 +1,5 @@
-import {legacy_createStore,createStore} from "redux"
-import {reducer} from './reducer'
+import {legacy_createStore} from "redux"
+import {reducer} from './reducer.js'
 
 const initialState={counter:1,
     todo:[]

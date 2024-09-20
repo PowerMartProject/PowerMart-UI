@@ -1,4 +1,4 @@
-import {ADD,SUB} from './actionType'
+import {ADD,SUB} from './actionType.js'
 export const addFunction=(payload)=>{
     return {type:ADD,payload:payload}
 
