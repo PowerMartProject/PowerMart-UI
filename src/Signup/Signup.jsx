@@ -130,16 +130,17 @@ function Signup() {
     }
     }
     const body = {
-      'Email': email,
-      'Password': password,
-      'FirstName': firstName,
-      'LastName': lastName,
-      'Pincode': pincode,
-      'Street': street,
-      'District': district,
-      'Gender': gender,
-      'Country': selectedCountry,
-      'UserType': userType,
+      'emailId': email,
+      'password': password,
+      'firstName': firstName,
+      'lastName': lastName,
+      'pincode': pincode,
+      'streetName': street,
+      'district': district,
+      'city': district,
+      'state': gender,
+      'country': selectedCountry,
+      'roles': Array.from(new Set([userType])),
       
     }
 
