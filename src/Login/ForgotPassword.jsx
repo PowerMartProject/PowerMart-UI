@@ -13,6 +13,20 @@ const ForgotPassword = () => {
   const forgotPasswordFun = (e) => {
     e.stopPropagation();
     dispatch(ForgotPasswordDispatcher(forgotPassword));
+    const url = 'http://localhost:8000/user/forgotpassword?email=forgotpassword'
+    const config={
+			headers:{
+			'Content-Type':'application/json',
+			'Authorization':'Bearer'+localStorage.getItem('bearerToken')
+
+		}};
+		axios.post(url,data,config).then(response=>{
+			console.log('response',response.data)
+		})
+		.catch(error=>{
+			console.log('ERROR',error)
+
+		})
     navigate("/generateOtp");
   };
 

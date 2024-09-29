@@ -19,9 +19,22 @@ const GenerateOtp = () => {
 
   const verifyCode=()=>{
     //need to send otp to backend
+    const url = 'http://localhost:8000/user/validate'
+    //send email and otp in payload
+    /* {
+  "emailId": "string",
+  "otp": "string"
+}*/
     console.log(otp)
     navigate("/Login")
-
+    // navigate to new password entry page
+    /* url = http:localhost:8000/resetpassword
+    {
+  "emailId": "string",
+  "password": "string"
+}
+if status is ok then redirect to Login page
+    */
   }
   return (
     <div className='mail-invitation'>
