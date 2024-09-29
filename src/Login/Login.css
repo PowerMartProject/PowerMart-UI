@@ -176,3 +176,41 @@ body {
 .social-login__icon:hover {
 	transform: scale(1.5);	
 }
+.forgot-password {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	max-width: 400px;
+	padding: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+	border-radius: 8px;
+  }
+  
+.forgot-password-color
+{
+	background-color: darkblue;
+	color: white;
+	margin-top: 20px;
+}
+.mail-invitation
+{
+	position:absolute;
+	top: 0;
+	left: 31%;
+	width: 100%;
+	max-width: 400px;
+	padding: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+	border-radius: 8px;
+
+
+}
+.setting-verify-code
+{
+	background-color: darkblue;
+	color: white;
+}

@@ -1,6 +1,9 @@
-import {useState} from 'react';
+import {useState,useDispatch} from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios'
 import './Login.css'
+import './ForgotPassword'
+
 
 
 
@@ -48,6 +51,11 @@ function Login()
 						setPassword(e.target.value)
 					}}/>
 				</div>
+				<div>
+					<Link  to="/ForgotPassword">
+						Forgot Password
+					</Link>
+				</div>
 				<button className="button login__submit">
 					<span className="button__text">Log In Now</span>
 					<i className="button__icon fas fa-chevron-right"></i>
@@ -67,7 +75,10 @@ function Login()
 			<span className="screen__background__shape screen__background__shape3"></span>		
 			<span className="screen__background__shape screen__background__shape2"></span>
 			<span className="screen__background__shape screen__background__shape1"></span>
-		</div>		
+		</div>	
+		<div>
+
+		</div>	
 	</div>
 </div>
     )
