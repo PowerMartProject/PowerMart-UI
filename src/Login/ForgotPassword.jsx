@@ -7,27 +7,30 @@ import { ForgotPasswordDispatcher } from '../redux/LoginAction';
 
 const ForgotPassword = () => {
   const [forgotPassword, setForgotPassword] = useState('');
+  const [error,setError]=useState('')
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const forgotPasswordFun = (e) => {
     e.stopPropagation();
     dispatch(ForgotPasswordDispatcher(forgotPassword));
-    const url = 'http://localhost:8000/user/forgotpassword?email=forgotpassword'
-    const config={
-			headers:{
-			'Content-Type':'application/json',
-			'Authorization':'Bearer'+localStorage.getItem('bearerToken')
-
-		}};
-		axios.post(url,data,config).then(response=>{
-			console.log('response',response.data)
+  //  navigate("/GenerateOtp")
+    const url = `http://localhost:8000/user/forgotpassword?email=${forgotPassword}`
+		axios.post(url).then(response=>{
+            if(response.status===200)
+            {
+                navigate("/GenerateOtp");
+            }
+			
+            else{
+                setError("Please enter valid emailId")
+            }
 		})
 		.catch(error=>{
 			console.log('ERROR',error)
 
 		})
-    navigate("/generateOtp");
+   
   };
 
   const handleChangeForgotPassword = (e) => {
@@ -51,6 +54,7 @@ const ForgotPassword = () => {
           Forgot Password
         </button>
       </div>
+      {error&&<p className='error-message'>{error}</p>}
     </div>
   );
 };

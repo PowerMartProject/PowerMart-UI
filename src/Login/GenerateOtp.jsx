@@ -4,9 +4,11 @@ import OtpInput from 'react-otp-input';
 import { useNavigate } from 'react-router-dom';
 
 import './Login.css';
+import axios from 'axios';
 
 const GenerateOtp = () => {
   const [otp, setOtp] = useState('');
+  const[error,setError]=useState('')
   const navigate=useNavigate()
 
   const forgotPassword = useSelector((state) => state.login.forgotPassword);
@@ -18,15 +20,38 @@ const GenerateOtp = () => {
   };
 
   const verifyCode=()=>{
+    //navigate("/ConfirmPasswordPage")
     //need to send otp to backend
     const url = 'http://localhost:8000/user/validate'
+    const config={
+        headers:{
+			'Content-Type':'application/json',
+			'Authorization':'Bearer'+localStorage.getItem('bearerToken')
+
+		}
+    }
+    const data={
+        "emailId":forgotPassword,
+        "otp":otp
+    }
+    axios.post(url,data,config).then(
+        response=>{
+            if(response.status===200)
+            {
+                navigate("/ConfirmPasswordPage")
+            }
+            else{
+                setError('Please enter a valid OTP')
+            }
+        }
+    )
     //send email and otp in payload
     /* {
   "emailId": "string",
   "otp": "string"
 }*/
     console.log(otp)
-    navigate("/Login")
+  
     // navigate to new password entry page
     /* url = http:localhost:8000/resetpassword
     {
@@ -44,7 +69,7 @@ if status is ok then redirect to Login page
       <OtpInput
         value={otp}
         onChange={handleChangeOtp} // Pass the function itself, not the result of calling it
-        numInputs={5}
+        numInputs={6}
         renderSeparator={<span style={{ width: '10px' }}></span>}
         renderInput={(props) => (
           <input
@@ -63,6 +88,7 @@ if status is ok then redirect to Login page
       />
       <button className="setting-verify-code" onClick={verifyCode}
       >Verify Code </button>
+      {error&&<p className='error-message'>{error}</p>}
     </div>
   );
 };

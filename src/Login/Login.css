@@ -195,7 +195,7 @@ body {
 	color: white;
 	margin-top: 20px;
 }
-.mail-invitation
+.mail-invitation .confirm-password-container
 {
 	position:absolute;
 	top: 0;
@@ -206,11 +206,30 @@ body {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	background-color: #fff;
 	border-radius: 8px;
-
-
 }
-.setting-verify-code
+.confirm-password-container
+{
+	position:absolute;
+	top: 0;
+	left: 31%;
+	width: 100%;
+	max-width: 400px;
+	padding: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+	border-radius: 8px;
+}
+.setting-verify-code 
 {
 	background-color: darkblue;
 	color: white;
+}
+.verify-confirm-password
+{
+	background-color: darkblue;
+	color: white;
+}
+.error-message
+{
+	color: red;
 }
