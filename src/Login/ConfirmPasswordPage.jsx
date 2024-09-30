@@ -17,9 +17,9 @@ const ConfirmPasswordPage = () => {
       return;
     }
 
-    const url = "http://localhost:8000/resetpassword";
+    const url = "http://localhost:8000/user/resetpassword";
     const data = {
-      email: email,
+      emailId: email,
       password: password
     };
     const config = {

@@ -27,7 +27,7 @@ body, html{
 	margin: 8% auto 0;
 	position: relative;
 	z-index: 1;
-	border-top: 5px solid yellow;
+	border-top: 5px solid darkblue;
 	-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -115,11 +115,11 @@ body, html{
       -webkit-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
       -moz-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
       box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
-      border: 1px solid yellow;
+      border: 1px solid darkblue;
       background: #fafafa;
     }
     &[type="submit"] {
-		background: yellow;
+		background: darkblue;
 		height: 35px;
 		line-height: 35px;
 		width: 100%;
@@ -134,10 +134,10 @@ body, html{
 		-ms-transition: all 0.30s ease-in-out;
 		transition: all 0.30s ease-in-out;
 		&:hover {
-			background: darken(yellow,7%);
+			background: darken(darkblue,7%);
 		}
 		&:focus {
-			background: darken(yellow,7%);
+			background: darken(darkblue,7%);
 		}
 	}    
     &[type="checkbox"], &[type="radio"] {
@@ -288,9 +288,9 @@ body, html{
 	z-index: 1;
 	text-align: center;
 	padding: 15px;
-	color: yellow;
+	color: darkblue;
 	a {
-		color: darken(yellow,7%);
+		color: darken(dar,7%);
 	}
 }
 @-webkit-keyframes check {

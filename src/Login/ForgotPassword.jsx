@@ -7,35 +7,31 @@ import { ForgotPasswordDispatcher } from '../redux/LoginAction';
 
 const ForgotPassword = () => {
   const [forgotPassword, setForgotPassword] = useState('');
-  const [error,setError]=useState('')
+  const [error, setError] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const forgotPasswordFun = (e) => {
-    e.stopPropagation();
+    e.preventDefault(); // Prevent default form submission
     dispatch(ForgotPasswordDispatcher(forgotPassword));
-  //  navigate("/GenerateOtp")
-    const url = `http://localhost:8000/user/forgotpassword?email=${forgotPassword}`
-		axios.post(url).then(response=>{
-            if(response.status===200)
-            {
-                navigate("/GenerateOtp");
-            }
-			
-            else{
-                setError("Please enter valid emailId")
-            }
-		})
-		.catch(error=>{
-			console.log('ERROR',error)
 
-		})
-   
+    const url = `http://localhost:8000/user/forgotpassword?email=${forgotPassword}`;
+    axios.post(url)
+      .then(response => {
+        if (response.status === 200) {
+          navigate("/GenerateOtp");
+        } else {
+          setError("Please enter a valid email ID");
+        }
+      })
+      .catch(error => {
+        console.error('ERROR', error);
+       setError("Please enter a valid email ID")
+      });
   };
 
   const handleChangeForgotPassword = (e) => {
     setForgotPassword(e.target.value);
-    console.log(forgotPassword)
   };
 
   return (
@@ -45,6 +41,7 @@ const ForgotPassword = () => {
       <label>Email</label>
       <br />
       <input
+        type='email'
         placeholder='Email'
         value={forgotPassword}
         onChange={handleChangeForgotPassword}
@@ -53,8 +50,13 @@ const ForgotPassword = () => {
         <button onClick={forgotPasswordFun} className='forgot-password-color'>
           Forgot Password
         </button>
+        <button onClick={()=>{
+          navigate('/Login')
+        }} className='forgot-password-color' style={{marginLeft:'5px'}}>
+          Back To Login
+        </button>
       </div>
-      {error&&<p className='error-message'>{error}</p>}
+      {error && <p className='error-message'>{error}</p>}
     </div>
   );
 };

@@ -41,25 +41,16 @@ const GenerateOtp = () => {
                 navigate("/ConfirmPasswordPage")
             }
             else{
+              setOtp('')
                 setError('Please enter a valid OTP')
             }
         }
+        
     )
-    //send email and otp in payload
-    /* {
-  "emailId": "string",
-  "otp": "string"
-}*/
-    console.log(otp)
-  
-    // navigate to new password entry page
-    /* url = http:localhost:8000/resetpassword
-    {
-  "emailId": "string",
-  "password": "string"
-}
-if status is ok then redirect to Login page
-    */
+    .catch(error=>{
+      setError("please enter a valid OTP")
+      setOtp('')
+    })
   }
   return (
     <div className='mail-invitation'>

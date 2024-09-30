@@ -14,11 +14,11 @@ function Login()
 	const handleSubmit=(e)=>{
 		e.preventDefault()
 		const data={
-			'Email':email,
+			'emailId':email,
 			'Password':password
 		}
 		console.log(data)
-		const url='http://localhost:8000/auth/Login'
+		const url='http://localhost:8000/auth/login'
 		const config={
 			headers:{
 			'Content-Type':'application/json',
@@ -35,8 +35,8 @@ function Login()
 
 	}
     return(
-        <div className="container">
-	<div className="screen">
+        <div className="form_wrapper">
+	<div className="form_container">
 		<div className="screen__content">
 			<form className="login" onClick={handleSubmit}>
 				<div className="login__field">
