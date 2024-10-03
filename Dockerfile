@@ -16,11 +16,14 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Step 2: Serve the application using a lightweight web server
+# Step 2: Serve the application using Nginx
 FROM nginx:alpine
 
 # Copy the build files to Nginx's public directory
 COPY --from=build /app/dist /usr/share/nginx/html
+
+# Copy custom nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose the port that Nginx is running on
 EXPOSE 80
