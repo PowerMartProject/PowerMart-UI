@@ -6,6 +6,7 @@ import Login from '../Login/Login';
 import Signup from '../Signup/Signup'
 import GenerateOtp from '../Login/GenerateOtp'
 import ConfirmPasswordPage from '../Login/ConfirmPasswordPage';
+import Homepage from '../HomePage/Homepage';
 
 //import { connect } from 'react-redux';
 
@@ -15,6 +16,7 @@ function Start()
     return(
         <BrowserRouter>
         <Routes>
+            <Route path="/" element={<Homepage/>}/>
             <Route  path='/Signup' element={<Signup/>}/>
             <Route  path='/Login' element={<Login/>}/>
             <Route path='/Forgotpassword' element={<ForgotPassword/>}/>

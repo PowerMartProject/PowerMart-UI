@@ -1,0 +1,178 @@
+.sidebar-container
+{
+    
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: transparent;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      
+}
+
+.logo
+{
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 44px;
+  text-align: center;
+  color: black;
+  /* margin-bottom: 20px; */
+}
+
+.search-bar
+{
+  padding: 10px;
+  /* margin-bottom: 20px; */
+  border: none;
+  height: 40px;
+  border: 0;
+  outline: 0 none;
+  font-size: 17px;
+  border-radius: 4px;
+  margin: auto;
+  width: 50%;
+  background-color: lightcyan;
+  
+}
+
+.side-bar-link{
+  color: #fff;
+  text-decoration: none;
+  margin: 10px 0;
+  &:hover {
+    background-color: #1a5bb8;
+
+  }
+  text-align: center;
+  margin-right: 2px;
+  color: black;
+}
+.login-title-container
+{
+    position: relative;
+    display: inline-flex;
+    display: flex;
+    align-items: center;
+    color: black;
+    margin-right: auto;
+}
+.card-title-container
+{
+    display: flex;
+    align-items: center;
+    color: black;
+    margin-right: 50px;
+}
+.three-dots
+{
+    display: flex;
+    align-items: center;
+}
+.hover-container-login
+{
+    display: none;
+    
+    position:absolute;
+    flex-item:center;
+    width: 250px;
+    height: 250px;
+    top:100% ;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    border-radius: 5px;
+
+}
+.login-title-container:hover .hover-container-login {
+    display: block !important;
+  }
+.signup-popup
+{
+    display: flex;
+    flex-direction: row;
+
+}
+.login-style
+{
+    background-color: darkblue;
+    color: white;
+    height: auto;
+    width: auto;
+    padding: 5px;
+   
+    border-radius: 2px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+.cutomer-section
+{
+    text-align: center;
+}
+.signup-popup
+{
+    margin-top: 10px;
+}
+.profile-section
+{
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+.order-section
+{ 
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+
+}
+.wishlist-section
+{
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+.three-dots
+{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+.three-dots:hover
+.hover-section-about
+{
+    display: block;
+}
+.hover-section-about
+{
+    display: none;
+    
+    position:absolute;
+    align-items:center;
+    width: 150px;
+    height: 50px;
+    top:100% ;
+    left: auto;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    border-radius: 5px;
+}
+@media (max-width: 768px) {
+    .hover-section-about {
+      left: auto;
+      right: 0;
+    }
+  }
