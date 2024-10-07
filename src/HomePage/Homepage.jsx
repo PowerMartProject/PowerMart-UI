@@ -1,9 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Homepage.css'
+import { LoggedIn } from '../LoginVerifiction/VerifyingJwt';
 
 
 const Homepage = () => {
+  const handleCart=()=>{
+    if(!LoggedIn())
+    {
+      window.location.href='/Login'
+    }
+    else{
+      window.location.href='/cart'
+    }
+  }
+  const handleProfileSection=()=>{
+    /*if(!LoggedIn())
+    {
+      window.location.href='/Login'
+    }
+    else{*/
+      window.location.href='/MyProfile'
+    // }
+  }
   return (
     <div className="sidebar-container">
       <div className="logo">PowerMart.
@@ -23,7 +42,7 @@ const Homepage = () => {
                     <Link to ="/Signup" style={{marginLeft:'5px'}}>Start here</Link>
                 </div>
                 <hr/>
-                <a className='profile-section'>
+                <a className='profile-section' onClick={handleProfileSection}>
                 <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-52e0dc.svg" alt="Login" class="-dOa_b L_FVxe" width="24" height="24"></img>
                 <span style={{marginLeft:'5px',color:'black'}}>My Profile</span>
                 </a>
@@ -39,7 +58,7 @@ const Homepage = () => {
         </div>
       </div>
       </a>
-      <a className='card-title-container'>
+      <a className='card-title-container' onClick={handleCart}>
       <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/header_cart-eed150.svg" alt="Cart" class="_1XmrCc" width="24" height="24"/>
       <span>Cart</span>
       </a>

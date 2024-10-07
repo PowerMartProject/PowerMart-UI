@@ -7,7 +7,7 @@ const rootReducer = combineReducers({
 
 const initialState = {
   login: {
-    forgotPassword: "rajesh" // Ensure this matches your reducer's initial state
+    forgotPassword: "vinay" // Ensure this matches your reducer's initial state
   }
 };
 

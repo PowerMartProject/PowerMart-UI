@@ -134,13 +134,7 @@ function Signup() {
       'password': password,
       'firstName': firstName,
       'lastName': lastName,
-      'pincode': pincode,
-      'streetName': street,
-      'district': district,
-      'city': district,
-      'state': gender,
-      'country': selectedCountry,
-      'roles': Array.from(new Set([userType])),
+      'roles': Array.from(new Set(["ROLE_USER"])),
       
     }
 
@@ -161,27 +155,11 @@ const handleChangeCountry=(event)=>{
         <div className="row clearfix">
           <div className="">
             <form onSubmit={handleSubmit}>
-              <div className="input_field">
-                <span><i aria-hidden="true" className="fa fa-envelope"></i></span>
-                <input type="email" name="email" placeholder="Email" required value={email} onChange={handleEmailChange} />
-              </div>
-              {errorMessage && <p style={{ color: 'red', }} className="validations">{errorMessage}</p>}
-
-              <div className="input_field">
-                <span><i aria-hidden="true" className="fa fa-lock"></i></span>
-                <input type="password" name="password" placeholder="Password" value={password} required onChange={handlePasswordChange} />
-              </div>
-              <p style={{ color: getStrengthColor() }} className="validations">{strength}</p>
-              <div className="input_field">
-                <span><i aria-hidden="true" className="fa fa-lock"></i></span>
-                <input type="password" name="password" placeholder="Re-type Password" required onChange={(e) => setConfirmedPassword(e.target.value)} />
-              </div>
-              {ErrorConfirmMessage && <p style={{ color: 'red' }}>{ErrorConfirmMessage}</p>}
-              <div className="row clearfix">
+            <div className="row clearfix">
                 <div className="col_half">
                   <div className="input_field">
                     <span><i aria-hidden="true" className="fa fa-user"></i></span>
-                    <input type="text" name="Firtname" placeholder="First Name" required value={firstName}  onChange={(e) => setFirstName(e.target.value)} />
+                    <input type="text" name="Firtname" placeholder="First Name" required value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                   </div>
                 </div>
                 <div className="col_half">
@@ -191,13 +169,29 @@ const handleChangeCountry=(event)=>{
                   </div>
                 </div>
               </div>
-                <br />
+              <div className="input_field">
+                <span><i aria-hidden="true" className="fa fa-envelope"></i></span>
+                <input type="email" name="email" placeholder="Email" required value={email} onChange={handleEmailChange} />
+                <p style={{ color: 'red', visibility: errorMessage ? 'visible' : 'hidden', height: '1em' }} className="validations">{errorMessage || ' '}</p>
+              </div>
+              <div className="input_field">
+                <span><i aria-hidden="true" className="fa fa-lock"></i></span>
+                <input type="password" name="password" placeholder="Password" value={password} required onChange={handlePasswordChange} />
+                <p style={{ color: getStrengthColor(), height: '1em' }} className="validations">{strength}</p>
+              </div>
+              <div className="input_field">
+                <span><i aria-hidden="true" className="fa fa-lock"></i></span>
+                <input type="password" name="password" placeholder="Re-type Password" required onChange={(e) => setConfirmedPassword(e.target.value)} />
+                <p style={{ color: 'red', visibility: ErrorConfirmMessage ? 'visible' : 'hidden', height: '1em' }} className="validations">{ErrorConfirmMessage || ' '}</p> 
+                {/* {ErrorConfirmMessage && <p style={{ color: 'red' }}>{ErrorConfirmMessage}</p>} */}
+              </div>
+              <br />
               <input className="button" type="submit" value="Register" />
             </form>
           </div>
         </div>
       </div>
-      <p className="credit">Developed by <a href="http://www.designtheway.com" target="_blank" rel="noopener noreferrer">Bhai team</a></p>
+      <p className="credit">Already have a account ? <a href="/Login">Login in</a></p>
     </div>
   )
 };

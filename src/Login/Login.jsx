@@ -26,7 +26,9 @@ function Login()
 
 		}};
 		axios.post(url,data,config).then(response=>{
-			console.log('response',response.data)
+			const data=response.json()
+			localStorage.setItem('token',data.token);
+
 		})
 		.catch(error=>{
 			console.log('ERROR',error)
@@ -50,32 +52,24 @@ function Login()
 					<input type="password" className="login__input" placeholder="Password" value={password} onChange={(e)=>{
 						setPassword(e.target.value)
 					}}/>
-				</div>
-				<div>
+					<div style={{marginTop:'7px'}}>
 					<Link  to="/ForgotPassword">
 						Forgot Password
 					</Link>
 				</div>
-				<button className="button login__submit">
-					<span className="button__text">Log In Now</span>
-					<i className="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-			<div className="social-login">
-				<h3>log in via</h3>
-				<div className="social-icons">
-					<a href="#" className="social-login__icon fab fa-instagram"></a>
-					<a href="#" className="social-login__icon fab fa-facebook"></a>
-					<a href="#" className="social-login__icon fab fa-twitter"></a>
 				</div>
-			</div>
+				
+				<input className="button" type="submit" value="Login" />	
+				<div className="customer-confirmation">
+		  
+				<h6>Are you new customer?</h6>
+			<h6>
+			<a href='/Signup'>Start here</a>
+			</h6></div>
+			
+			</form>
+			  
 		</div>
-		<div className="screen__background">
-			<span className="screen__background__shape screen__background__shape4"></span>
-			<span className="screen__background__shape screen__background__shape3"></span>		
-			<span className="screen__background__shape screen__background__shape2"></span>
-			<span className="screen__background__shape screen__background__shape1"></span>
-		</div>	
 		<div>
 
 		</div>	
